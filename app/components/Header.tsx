@@ -22,7 +22,7 @@ export default function Header() {
 
       {/* TITULO */}
       <h1 className="text-4xl font-extrabold text-yellow-400">
-        Horários dos Boss
+        Horários dos Bosses
       </h1>
 
       {/* SUBTITULO */}
