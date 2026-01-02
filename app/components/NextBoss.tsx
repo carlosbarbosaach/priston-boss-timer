@@ -13,10 +13,15 @@ type NextBossItem = {
 
 export default function NextBoss() {
   const [nextBosses, setNextBosses] = useState<NextBossItem[]>([])
+  const [arenaDiff, setArenaDiff] = useState<number>(0)
 
   useEffect(() => {
     const update = () => {
       const now = getNowInMinutes()
+
+      /* =====================
+         PRÓXIMOS BOSSES NORMAIS
+      ===================== */
       let closestDiff: number | null = null
       let result: NextBossItem[] = []
 
@@ -49,6 +54,14 @@ export default function NextBoss() {
       })
 
       setNextBosses(result)
+
+      /* =====================
+         ARENA BOSS (21:00)
+      ===================== */
+      let arenaTime = timeToMinutes('21:00')
+      if (arenaTime < now) arenaTime += 1440
+
+      setArenaDiff(arenaTime - now)
     }
 
     update()
@@ -61,10 +74,11 @@ export default function NextBoss() {
   return (
     <div className="flex flex-col items-center gap-4">
       <p className="text-sm text-zinc-300">
-        🔥 Próximo{nextBosses.length > 1 ? 's' : ''} Boss Global
+        🔥 Próximos Eventos Globais
       </p>
 
       <div className="flex flex-wrap justify-center gap-4">
+        {/* BOSSES NORMAIS */}
         {nextBosses.map((item, index) => (
           <div
             key={index}
@@ -81,6 +95,19 @@ export default function NextBoss() {
             </p>
           </div>
         ))}
+
+        {/* ARENA BOSS */}
+        <div className="bg-gradient-to-r from-red-500/10 to-red-500/5 border border-red-500/30 rounded-xl px-6 py-4 text-center min-w-[240px]">
+          <p className="text-lg font-bold text-red-400">
+            Arena Boss
+          </p>
+          <p className="text-sm text-zinc-400">
+            Evento Diário
+          </p>
+          <p className="text-sm text-zinc-300 mt-1">
+            Em {arenaDiff} min (21:00)
+          </p>
+        </div>
       </div>
     </div>
   )

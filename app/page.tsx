@@ -6,6 +6,7 @@ import NextBoss from './components/NextBoss'
 import BossGrid from './components/BossGrid'
 import Footer from './components/Footer'
 import { useFiveMinuteAlert } from './hooks/useFiveMinuteAlert'
+import ArenaBoss from './components/ArenaBoss'
 
 export default function Home() {
   // 🔔 ALERTA AUTOMÁTICO 5 MIN ANTES
@@ -30,6 +31,7 @@ export default function Home() {
             <Clock />
             <NextBoss />
             <BossGrid />
+            <ArenaBoss />
           </div>
         </div>
 
