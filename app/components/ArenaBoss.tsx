@@ -28,7 +28,7 @@ export default function ArenaBoss() {
 
                 {/* DROP */}
                 <div className="text-sm text-yellow-400 font-semibold">
-                    DROP ÉPICO: Cinto HGG
+                    DROP ÉPICO: Cinto HG
                 </div>
 
                 <p className="text-xs text-zinc-400">
