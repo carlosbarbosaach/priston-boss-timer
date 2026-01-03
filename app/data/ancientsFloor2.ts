@@ -1,16 +1,36 @@
-export const ancientsFloor2 = [
+export type AncientsQuest = {
+  title: string
+  questType: 'Monstros' | 'Boss'
+  mode: 'Grupo' | 'Solo'
+  level: string
+  description: string
+  mission: string
+
+  rewards: string[]   // garantido
+  drops?: string[]    // chance (somente boss)
+
+  bossName?: string
+  spawnTimes?: string[]
+  isDaily?: boolean
+}
+
+export const ancientsFloor2: AncientsQuest[] = [
   {
     title: 'Calabouço dos Anciões – 2º Andar',
-    type: 'Grupo',
+    questType: 'Monstros',
+    mode: 'Grupo',
     level: '1–119',
     description:
-      'Cace 2000 monstros em Calabouço dos Anciões 2º Andar e conclua o desafio.',
+      'Cace 1000 monstros em Calabouço dos Anciões – 2º Andar e conclua o desafio diário.',
     mission: '0/1000 Calabouço dos Anciões 2º Andar',
+
     rewards: ['500.000 Gold', '920.000.000 Exp'],
+    isDaily: true, // 🔔 DESAFIO DIÁRIO
   },
   {
     title: 'Calabouço dos Anciões – 2º Andar',
-    type: 'Grupo',
+    questType: 'Monstros',
+    mode: 'Grupo',
     level: '1–119',
     description:
       'Cace 600 monstros em Calabouço dos Anciões 2º Andar e conclua o desafio.',
@@ -19,7 +39,8 @@ export const ancientsFloor2 = [
   },
   {
     title: 'Calabouço dos Anciões – 2º Andar',
-    type: 'Solo',
+    questType: 'Monstros',
+    mode: 'Grupo',
     level: '1–119',
     description:
       'Cace 250 monstros em Calabouço dos Anciões 2º Andar e conclua o desafio.',
