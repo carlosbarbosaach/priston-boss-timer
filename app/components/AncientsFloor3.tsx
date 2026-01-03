@@ -1,0 +1,12 @@
+import { ancientsFloor3 } from '../data/ancientsFloor3'
+import EventCard from '../components/EventCard'
+
+export default function AncientsFloor1() {
+  return (
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      {ancientsFloor3.map((event, index) => (
+        <EventCard key={index} event={event} />
+      ))}
+    </div>
+  )
+}
