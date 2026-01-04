@@ -16,6 +16,7 @@ type Props = {
     spawnTimes?: string[]    // horários do boss
 
     isDaily?: boolean        // 🔔 desafio diário
+    isRepeatable?: boolean   // 🔁 desafio repetitivo
   }
 }
 
@@ -47,16 +48,28 @@ export default function EventCard({ event }: Props) {
             </span>
           )}
 
+          {event.isRepeatable && (
+            <span className="text-xs px-2 py-1 rounded-full bg-green-500/20 border border-green-400 text-green-300">
+              DESAFIO REPETITIVO
+            </span>
+          )}
+
           <span className="text-xs px-2 py-1 rounded-full border text-zinc-300">
             {isBoss ? 'BOSS' : event.mode}
           </span>
         </div>
       </div>
 
-      {/* TEXTO DESAFIO DIÁRIO */}
+      {/* TEXTO AUXILIAR */}
       {event.isDaily && (
         <p className="text-xs text-blue-300">
           Disponível apenas uma vez por dia
+        </p>
+      )}
+
+      {event.isRepeatable && !event.isDaily && (
+        <p className="text-xs text-green-300">
+          Pode ser repetido quantas vezes quiser
         </p>
       )}
 

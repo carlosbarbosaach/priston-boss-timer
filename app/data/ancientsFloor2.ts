@@ -12,6 +12,7 @@ export type AncientsQuest = {
   bossName?: string
   spawnTimes?: string[]
   isDaily?: boolean
+  isRepeatable?: boolean
 }
 
 export const ancientsFloor2: AncientsQuest[] = [
@@ -36,6 +37,7 @@ export const ancientsFloor2: AncientsQuest[] = [
       'Cace 600 monstros em Calabouço dos Anciões 2º Andar e conclua o desafio.',
     mission: '0/600 Calabouço dos Anciões 2º Andar',
     rewards: ['120.000.000 Exp'],
+    isRepeatable: true,
   },
   {
     title: 'Calabouço dos Anciões – 2º Andar',
@@ -46,5 +48,6 @@ export const ancientsFloor2: AncientsQuest[] = [
       'Cace 250 monstros em Calabouço dos Anciões 2º Andar e conclua o desafio.',
     mission: '0/250 Calabouço dos Anciões 2º Andar',
     rewards: ['60.000.000 Exp'],
+    isRepeatable: true,
   },
 ]
